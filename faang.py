@@ -1,5 +1,8 @@
-# Imports
+#!/usr/bin/env python3
 
+# https://realpython.com/python-shebang/
+
+# Imports
 # Dates and time
 import datetime as dt 
 
@@ -33,3 +36,5 @@ get_data().to_csv("./data/" +  # save to data folder
                   local
                   + ".csv")
 
+#used chmod +x to change mode to excecute file 
+#https://realpython.com/python-shebang/
