@@ -71,7 +71,7 @@ def plot_data():
 
     timestamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S") # format filename to current date
     filename = os.path.join(plots_folder, f"{timestamp}.png") # join filename and filename/ create filename
-    plt.savefig(filename)
+    plt.savefig(filename, dpi=300)
 
     plt.show()
 
