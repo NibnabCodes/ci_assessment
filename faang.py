@@ -67,10 +67,7 @@ def plot_data():
     plt.grid(True)
     plt.tight_layout()
 
-    plots_folder = "./plots" # save to plots folder
-
-    timestamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S") # format filename to current date
-    filename = os.path.join(plots_folder, f"{timestamp}.png") # join filename and filename/ create filename
+    filename = os.path.join("./plots", f"{local}.png") # join filename and filename + create filename
     plt.savefig(filename, dpi=300)
 
     plt.show()
