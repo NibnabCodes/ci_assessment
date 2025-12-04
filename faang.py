@@ -13,9 +13,12 @@ import pandas as pd
 # Plot
 import matplotlib.pyplot as plt
 
+# File system operations
 import os
 
+# File pattern matching
 import glob
+
 
 # Collect data for all FAANG 
 # stocks over past 5 days
