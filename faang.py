@@ -54,37 +54,41 @@ get_data().to_csv(
 
 
 def plot_data():
-    list_of_files = glob.glob('./data/*')  # get all files from data folder
-    latest_file = max(list_of_files, key=os.path.getctime)  # get latest file
+    # Get all files from the data folder
+    list_of_files = glob.glob("./data/*")
+    # Get the latest file
+    latest_file = max(list_of_files, key=os.path.getctime)
 
+    # Read CSV with multi-index headers
     df2 = pd.read_csv(latest_file, header=[0, 1], index_col=0)
-    # convert index to datetime to allow for date formatting
+    # Convert index to datetime to allow for date formatting
     df2.index = pd.to_datetime(df2.index)
 
-    faang = ['AAPL', 'AMZN', 'GOOG', 'META', 'NFLX']  # define tickers
+    # Define tickers
+    faang = ["AAPL", "AMZN", "GOOG", "META", "NFLX"]
 
-    # extract 1st 8 digits from filename to get date
+    # Extract date from filename and format for readability
     date_str = os.path.basename(latest_file).split("-")[0]
-    date = dt.datetime.strptime(date_str, "%Y%m%d").strftime(
-        "%Y-%m-%d")  # format date for readability
+    date = dt.datetime.strptime(date_str, "%Y%m%d").strftime("%Y-%m-%d")
 
-    # group by date and take last close price of each day
-    last_per_day = df2['Close'][faang].groupby(df2.index.date).last()
-    last_5_days = last_per_day.tail(5)  # select last 5 days
+    # Group by date and take last close price of each day
+    last_per_day = df2["Close"][faang].groupby(df2.index.date).last()
+    # Select last 5 days
+    last_5_days = last_per_day.tail(5)
 
-    # plot data
-    # set figsize and markers for clarity
-    last_5_days.plot(figsize=(12, 6), marker='o')
+    # Plot data
+    last_5_days.plot(figsize=(12, 6), marker="o")  # Set figsize and markers for clarity
 
-    # add titles & labels
+    # Add titles and labels
     plt.title(f"{date}")
-    plt.xticks(rotation=45)  # rotate x axis for readability
+    plt.xticks(rotation=45)  # Rotate x-axis for readability
     plt.xlabel("Date")
     plt.ylabel("Close Price")
+    plt.legend(loc="upper right", bbox_to_anchor=(1, 0.9)) # Adjust position of ledgend
     plt.grid(True)
     plt.tight_layout()
 
-    # join filename and filename + create filename
+    # Save plot
     filename = os.path.join("./plots", f"{local}.png")
     plt.savefig(filename, dpi=300)
 
@@ -92,8 +96,3 @@ def plot_data():
 
 
 plot_data()
-
-
-def test(x, y):
-    print("hello")
-    return x + y
