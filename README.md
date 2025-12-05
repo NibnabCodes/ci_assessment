@@ -13,6 +13,7 @@
 
 
 ## Dependencies 📈
+installed pip install autopep8 in terminal
 
 
 
