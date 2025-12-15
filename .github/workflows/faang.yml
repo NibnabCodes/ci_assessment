@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # Reference: https://crontab.guru/#24_11_*_*_6
-    - cron: "45 21 * * *"
+    - cron: "00 22 * * *"
     
 permissions: 
   contents: write  
@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true
-          fetch-depth : 0 
+          fetch-depth: 0 
           
       - name: Set up Python
         uses: actions/setup-python@v5
