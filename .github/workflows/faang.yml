@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # Reference: https://crontab.guru/#24_11_*_*_6
-    - cron: "16 22 * * 1"
+    - cron: "00 15 * * 2"
     
 permissions: 
   contents: write  
