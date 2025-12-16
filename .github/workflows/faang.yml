@@ -1,10 +1,13 @@
+# Adapted from ChatGPT: 
+# https://chatgpt.com/share/69418c36-5610-8011-8488-c1d25c6f2bba
+
 name: Run faang.py and push changes
 
 on:
   workflow_dispatch:
   schedule:
-    # Reference: https://crontab.guru/#24_11_*_*_6
-    - cron: "00 15 * * 2"
+    # Reference: https://crontab.guru/#24_10_*_*_6
+    - cron: "24 10 * * 6"
     
 permissions: 
   contents: write  
@@ -33,10 +36,13 @@ jobs:
         run: |
           python faang.py
 
-      - name: Commit and push changes
+      - name: Commit changes
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add data plots
           git commit -m "Automated FAANG data update" || echo "No changes to commit"
-          git push
+
+      - name: Push changes
+        run: |
+          git push origin HEAD
