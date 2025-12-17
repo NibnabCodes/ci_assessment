@@ -15,16 +15,17 @@ The repository contains functions to retrieve and store the data, generate a com
 
 All functionality is documented and demonstrated in a Jupyter Notebook, which explains the implementation of each step, including data collection, plotting, scripting, and automation.
 
+## Features 📈
+
 
 ## About this repository 📈
 
 
 
-## Dependencies 📈
+## Dependencies 📈  
 
+**See tasks.ipynb for further information on the following libraries**
 
-
-## Technologies 📈
 
 
 ## How to Setup Environment 📈
@@ -38,4 +39,4 @@ All functionality is documented and demonstrated in a Jupyter Notebook, which ex
 
 ## References 📈
 
-Please see problems.ipynb for references used.
+Please see <u>problems.ipynb</u> for references used.
